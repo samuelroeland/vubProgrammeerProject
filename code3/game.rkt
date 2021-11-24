@@ -8,6 +8,7 @@
 (load "adt-draw.rkt")
 (load "adt-level.rkt")
 (load "adt-position.rkt")
+(load "adt-ant.rkt")
 
 ;;
 ;; Start Game ;;

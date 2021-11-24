@@ -9,7 +9,8 @@
     
 
     (define (game-loop-procedure delta-time)
-      ((level-adt 'update) delta-time))
+      ;;((level-adt 'update!) delta-time)
+      ((level-adt 'draw!) draw-adt))
 
 
 

@@ -21,7 +21,7 @@
     ;;;;;;;;;;;;;;;;;;;;
     ;; DRAW FUNCTIONS ;;
     ;;;;;;;;;;;;;;;;;;;;
-    #;(define (draw-object! obj tile)
+    (define (draw-object! obj tile)
       (let* ((obj-x ((obj 'position) 'x))
              (obj-y ((obj 'position) 'y))
              (screen-x (* cel-breedte-px obj-x))
@@ -36,21 +36,41 @@
     ;; DRAW LOGIC ;;
     ;;;;;;;;;;;;;;;;
         
-    (define first-layer (window 'make-layer))
+    
 
 
 
     ;; draw ant
-    (define ant-tile (make-bitmap-tile "images/ant.png" "images/ant-mask.png"))
+    (define ant-layer (window 'make-layer))
 
 
+    
+    (define ant-tile
+      (make-bitmap-tile "images/ant.png" "images/ant-mask.png"))
 
-    ;; draw first layer
-    ((first-layer 'add-drawable) ant-tile)
+    
+    ;((ant-layer 'add-drawable) ant-tile)
 
 
-    ((ant-tile 'set-x!) 200)
-    ((ant-tile 'set-y!) 300)
+    ;; draw-ant :: ant-adt -> ant
+    (define (draw-ant! ant-adt)
+
+
+      ((ant-layer 'add-drawable) ant-tile))
+      
+      ;(display "draw adt: drawing ant"))
+      
+      ;(draw-object! ant-adt ant-tile))
+      
+
+
+    
+
+
+    ;; Bij het veranderen van ant-tile x of y kan de ant van plaats veranderen.
+    ;;
+    ;;((ant-tile 'set-x!) 300)
+    ;;((ant-tile 'set-y!) 300)
         
     
 
@@ -64,12 +84,14 @@
     
     ;; Welke functie moet er meegegeven worden aan set-game-loop-function! ??
     (define (set-game-loop-function! fun)
-      ((window 'set-update-callback!) (lambda(x) (display "set-game-loop-function "))))
+      ((window 'set-update-callback!) fun))
+       
     
     
 
     (define (dispatch-draw-adt msg)
       (cond ((eq? msg 'set-game-loop-function!) set-game-loop-function!)
+            ((eq? msg 'draw-ant!) draw-ant!)
             (else
              (display "MAKE-ADT-DRAW ELSE BRANCH"))))
 
