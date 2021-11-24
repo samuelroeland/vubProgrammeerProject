@@ -1,0 +1,19 @@
+;;;;;;;;;;;;;
+;; ADT ANT ;;
+;;;;;;;;;;;;;
+
+
+;; make-adt-ant :: position -> ant
+(define (make-adt-ant position)
+
+
+
+  ;; position! :: position -> /
+  (define (position! new-position)
+    (set! position new-position))
+
+
+  
+
+
+  

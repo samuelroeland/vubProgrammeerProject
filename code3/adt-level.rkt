@@ -4,9 +4,16 @@
 
 
 
+
+
+  (define (move-ant!)
+    (display "adt-level move-ant"))
+
+  
+
   (define (update! delta-time)
     ;; hier moet een functie komen te staan ipv display, functie wordt meegegeven aan set-game-loop-function fun
-    ((game 'start)))
+    (move-ant!))
     
 
 

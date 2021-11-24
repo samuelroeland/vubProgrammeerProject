@@ -1,13 +1,17 @@
+;;;;;;;;;;;;;;
+;; DRAW ADT ;;
+;;;;;;;;;;;;;;
+
+
 
 
 (define (make-adt-draw pixels-horizontal pixels-vertical)
   (let ((window (make-window window-width-px window-height-px "Fire Ant")))
 
-    ((window 'set-background!) "blue")
+    ((window 'set-background!) "black")
 
 
-    (define (set-game-loop-function! fun)
-      ((window 'set-update-callback!) fun))
+   
 
 
 
@@ -41,15 +45,26 @@
 
 
 
-
     ;; draw first layer
     ((first-layer 'add-drawable) ant-tile)
 
+
+    ((ant-tile 'set-x!) 200)
+    ((ant-tile 'set-y!) 300)
         
     
 
 
 
+    
+
+    ;;;;;;;;;;;;;;;
+    ;; Callbacks ;;
+    ;;;;;;;;;;;;;;;
+    
+    ;; Welke functie moet er meegegeven worden aan set-game-loop-function! ??
+    (define (set-game-loop-function! fun)
+      ((window 'set-update-callback!) (lambda(x) (display "set-game-loop-function "))))
     
     
 
