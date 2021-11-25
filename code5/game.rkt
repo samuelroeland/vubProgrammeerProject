@@ -27,6 +27,9 @@
 ;;;;;;;;;;;;;;;;;;;
 
 
+;; display left right down up
+;; display update
+
 
 
 ;;;;;;;;;;
@@ -34,7 +37,6 @@
 ;;;;;;;;;;
 
 ; Move ant on playfield
-; Implement the update! function in level adt
 
 ; Make walls on playfield
 
