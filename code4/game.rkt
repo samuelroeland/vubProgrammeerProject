@@ -26,6 +26,26 @@
 ;; FOUTMELDINGEN ;;
 ;;;;;;;;;;;;;;;;;;;
 
-; set-game-loop-function werkt NOG niet
+
+
+
+;;;;;;;;;;
+;; TODO ;;
+;;;;;;;;;;
+
+; Move ant on playfield
+
+; Make walls on playfield
+
+; Ant can not walk through walls
+
+; Scorpion with fixed path
+
+; Spawn food on tiles which are available
+
+
+
+
+
 
 
