@@ -1,6 +1,6 @@
-;;;;;;;;;;;;;;
-;; DRAW ADT ;;
-;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          ADT DRAW                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
@@ -17,19 +17,8 @@
 
     
 
-    
-    ;;;;;;;;;;;;;;;;;;;;
-    ;; DRAW FUNCTIONS ;;
-    ;;;;;;;;;;;;;;;;;;;;
-    (define (draw-object! obj tile)
-      (let* ((obj-x ((obj 'position) 'x))
-             (obj-y ((obj 'position) 'y))
-             (screen-x (* cel-breedte-px obj-x))
-             (screen-y (* cel-hoogte-px obj-y)))
-        ((tile 'x!) screen-x)
-        ((tile 'y!) screen-y)))
 
-
+;-----------------------------------------------------------------
 
 
     ;;;;;;;;;;;;;;;;
@@ -40,43 +29,61 @@
 
 
 
-    ;; draw ant
-    (define ant-layer (window 'make-layer))
-
 
     
+    ;;
+    ;; Ant Tile
+    
+    (define ant-layer (window 'make-layer))
     (define ant-tile
       (make-bitmap-tile "images/ant.png" "images/ant-mask.png"))
+    ((ant-layer 'add-drawable) ant-tile)
+      
+
+
+;-----------------------------------------------------------------
+    
+    ;;;;;;;;;;;;;;;;;;;;
+    ;; DRAW FUNCTIONS ;;
+    ;;;;;;;;;;;;;;;;;;;;
+    (define (draw-object! obj tile)
+      (let* ((obj-x ((obj 'position) 'x))
+             (obj-y ((obj 'position) 'y))
+             (screen-x (* cel-width-px obj-x))
+             (screen-y (* cel-height-px obj-y)))
+        ((tile 'set-x!) screen-x)
+        ((tile 'set-y!) screen-y)))
+
+
+       
+
+
 
     
-    ;((ant-layer 'add-drawable) ant-tile)
-
-
+;-----------------------------------------------------------------
+    ;;
+    ;; Ant
+    ;;
+    
     ;; draw-ant :: ant-adt -> ant
     (define (draw-ant! ant-adt)
-
-
-      ((ant-layer 'add-drawable) ant-tile))
       
-      ;(display "draw adt: drawing ant"))
-      
-      ;(draw-object! ant-adt ant-tile))
-      
-
+      (draw-object! ant-adt ant-tile))
 
     
 
 
-    ;; Bij het veranderen van ant-tile x of y kan de ant van plaats veranderen.
-    ;;
-    ;;((ant-tile 'set-x!) 300)
-    ;;((ant-tile 'set-y!) 300)
-        
-    
+
+;-----------------------------------------------------------------  
+
+    (define (draw-game! game-adt)
+      (draw-level! (game-adt 'level)))
 
 
+    (define (draw-level! level-adt)
+      (draw-ant! (level-adt 'ant)))
 
-    
+;----------------------------------------------------------------- 
 
     ;;;;;;;;;;;;;;;
     ;; Callbacks ;;
@@ -91,7 +98,7 @@
 
     (define (dispatch-draw-adt msg)
       (cond ((eq? msg 'set-game-loop-function!) set-game-loop-function!)
-            ((eq? msg 'draw-ant!) draw-ant!)
+            ((eq? msg 'draw-game!) draw-game!)
             (else
              (display "MAKE-ADT-DRAW ELSE BRANCH"))))
 

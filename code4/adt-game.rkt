@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                             ADT GAME                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 
@@ -10,7 +14,7 @@
 
     (define (game-loop-procedure delta-time)
       ;;((level-adt 'update!) delta-time)
-      ((level-adt 'draw!) draw-adt))
+      ((draw-adt 'draw-game!) dispatch-game))
 
 
 
@@ -33,6 +37,7 @@
     
     (define (dispatch-game msg)
       (cond ((eq? msg 'start) start)
+            ((eq? msg 'level) level-adt)
             (else
              (error "unknown message -DISPATCH GAME-"))))
 

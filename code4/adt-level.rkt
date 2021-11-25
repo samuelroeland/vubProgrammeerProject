@@ -1,9 +1,13 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          ADT LEVEL                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 (define (make-adt-level nr-cells-width nr-cells-height)
   (let* ((ant-start-position
-          (make-adt-position 300 300)) ;(/ nr-cells-width 2)
-                             ;(/ nr-cells-height 2)))
+          (make-adt-position (/ nr-cells-width 2)
+                             (/ nr-cells-height 2)))
          (ant-adt (make-adt-ant ant-start-position)))
 
 
@@ -35,7 +39,7 @@
 
     (define (dispatch-level msg)
       (cond ((eq? msg 'update!) update!)
-            ((eq? msg 'draw!) draw!)
+            ((eq? msg 'ant) ant-adt)
             (else
              (display "DISPATCH-LEVEL ELSE BRANCH"))))
 
