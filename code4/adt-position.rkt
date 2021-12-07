@@ -23,15 +23,6 @@
          (= y (other-position 'y))))
 
 
-  ;; move :: symbol -> position
-  (define (move direction)
-    (cond ((eq? msg 'up) (make-adt-position x (- y 1)))
-          ((eq? msg 'down) (make-adt-position x (+ y 1)))
-          ((eq? msg 'left) (make-adt-position (- x 1) y))
-          ((eq? msg 'right) (make-adt-position (+ x 1) y))
-          (else
-           (display "adt-position - move function else branch -"))))
-
   ;; get-x :: / -> number
   ;; get-y :: / -> number
   (define (dispatch-position msg)
@@ -39,7 +30,6 @@
           ((eq? msg 'y!) y!)
           ((eq? msg  'x) x)
           ((eq? msg 'y) y)
-          ((eq? msg 'move) move)
           (else
            (display "ERROR DISPATCH-POSITION"))))
 

@@ -18,17 +18,13 @@
 
 
 
-    (define (key-procedure state key)
-      (if (eq? state 'pressed)
-          ((level-adt 'key!) key)))
 
     
     
 
     ;; game-loop-procedure zal...
     (define (start)
-      ((draw-adt 'set-game-loop-function!) game-loop-procedure)
-      ((draw-adt 'set-key-function!) key-procedure))
+      ((draw-adt 'set-game-loop-function!) game-loop-procedure))
       
 
 
