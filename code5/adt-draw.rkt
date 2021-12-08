@@ -38,7 +38,17 @@
     (define ant-tile
       (make-bitmap-tile "images/ant.png" "images/ant-mask.png"))
     ((ant-layer 'add-drawable) ant-tile)
-      
+
+
+
+
+    ;;
+    ;; Wall
+    ;;
+    (define wall-layer (window 'make-layer))
+    (define wall-tile
+      (make-bitmap-tile "images/wall.png" "images/wall-mask2.png"))
+    ((wall-layer 'add-drawable) wall-tile)
 
 
 ;-----------------------------------------------------------------
@@ -69,6 +79,15 @@
     (define (draw-ant! ant-adt)
       (draw-object! ant-adt ant-tile))
 
+;-----------------------------------------------------------------
+    ;;
+    ;; Wall
+    ;;
+    (define (draw-wall! wall-adt)
+      (draw-object! wall-adt wall-tile)
+      (display "draw wall!"))
+    
+
     
 
 
@@ -80,7 +99,8 @@
 
 
     (define (draw-level! level-adt)
-      (draw-ant! (level-adt 'ant)))
+      (draw-ant! (level-adt 'ant))
+      (draw-wall! (level-adt 'wall)))
 
 ;----------------------------------------------------------------- 
 

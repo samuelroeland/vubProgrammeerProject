@@ -23,8 +23,8 @@
 
 
     (define (direction! new-direction)
-      (set! direction new-direction)
-      (display direction))
+      (set! direction new-direction))
+      
 
     
 

@@ -9,6 +9,8 @@
 (load "adt-level.rkt")
 (load "adt-position.rkt")
 (load "adt-ant.rkt")
+(load "adt-wall.rkt")
+(load "adt-wallpiece.rkt")
 
 ;;
 ;; Start Game ;;

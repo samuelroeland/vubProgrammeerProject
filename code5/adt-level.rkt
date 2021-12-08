@@ -8,7 +8,9 @@
   (let* ((ant-position
           (make-adt-position (/ nr-cells-width 2)
                              (/ nr-cells-height 2)))
-         (ant-adt (make-adt-ant ant-position)))
+         (ant-adt (make-adt-ant ant-position))
+         (wall-position (make-adt-position 15 15))
+         (wall-adt (make-adt-wall wall-position)))
 
 
 ;---------------------------------------------------------------
@@ -92,6 +94,7 @@
     (define (dispatch-level msg)
       (cond ((eq? msg 'update!) update!)
             ((eq? msg 'ant) ant-adt) ;; 'ant doest not refer to let anymore but the possibility the ant on a different position
+            ((eq? msg 'wall) wall-adt)
             ((eq? msg 'key!) key!) 
             (else
              (display "DISPATCH-LEVEL ELSE BRANCH"))))
