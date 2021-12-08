@@ -9,14 +9,14 @@
     (define (position! new-pos)
       (set! position new-pos))
 
-     (position 'position)
+    
 
     ;; wall list
     (define (wall-list)
-      (set! walls (cons (make-adt-wallpiece position) (make-adt-wallpiece (make-adt-position 20 20)))))
+      (set! walls (list (make-adt-wallpiece (make-adt-position 0 0))(make-adt-wallpiece (make-adt-position 1 0)))))
 
 
-    
+    (wall-list)
 
     
     ;; for every wall

@@ -46,21 +46,9 @@
     ;; Wall
     ;;
     (define wall-layer (window 'make-layer))
-    (define wall-tiles '())
-    
-    (define (add-wallpiece! wallpiece-adt)
-      (let ((new-tile
-             (make-bitmap-tile "images/wall.png" "images/wall-mask2.png")))
-        (set! wall-tiles (cons (cons wallpiece-adt new-tile) wall-tiles))
-        ((wall-layer 'add-drawable) new-tile)
-        new-tile))
-
-
-    (define (take-wallpiece wallpiece-adt)
-      (let ((result (assoc wallpiece-adt wall-tiles)))
-        (if result
-            (cdr result)
-            (add-wallpiece! wallpiece-adt))))
+    (define wall-tile
+      (make-bitmap-tile "images/wall.png" "images/wall-mask2.png"))
+    ((wall-layer 'add-drawable) wall-tile)
 
 
 ;-----------------------------------------------------------------
@@ -78,22 +66,9 @@
 
 
        
-;-----------------------------------------------------------------
 
-    ;;
-    ;; Wallpiece
-    ;;
-    (define (draw-wallpiece! wallpiece-adt)
-      (let ((tile (take-wallpiece wallpiece-adt)))
-        (draw-object! wallpiece-adt tile)))
 
-;-----------------------------------------------------------------
 
-    ;;
-    ;; Wall
-    ;;
-    (define (draw-wall! wall-adt)
-      ((wall-adt 'for-every-wall) draw-wallpiece!))
     
 ;-----------------------------------------------------------------
     ;;
@@ -105,7 +80,15 @@
       (draw-object! ant-adt ant-tile))
 
 ;-----------------------------------------------------------------
+    ;;
+    ;; Wall
+    ;;
+    (define (draw-wall! wall-adt)
+      (draw-object! wall-adt wall-tile)
+      (display "draw wall!"))
+    
 
+    
 
 
 

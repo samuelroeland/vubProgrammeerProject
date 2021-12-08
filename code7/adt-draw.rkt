@@ -50,7 +50,7 @@
     
     (define (add-wallpiece! wallpiece-adt)
       (let ((new-tile
-             (make-bitmap-tile "images/wall.png" "images/wall-mask2.png")))
+             (make-bitmap-tile "images/wall3.png" "images/wall-mask3.png")))
         (set! wall-tiles (cons (cons wallpiece-adt new-tile) wall-tiles))
         ((wall-layer 'add-drawable) new-tile)
         new-tile))

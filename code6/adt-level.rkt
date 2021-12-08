@@ -9,7 +9,7 @@
           (make-adt-position (/ nr-cells-width 2)
                              (/ nr-cells-height 2)))
          (ant-adt (make-adt-ant ant-position))
-         (wall-position (make-adt-position 10 15))
+         (wall-position (make-adt-position 15 15))
          (wall-adt (make-adt-wall wall-position)))
 
 

@@ -8,9 +8,7 @@
   (let* ((ant-position
           (make-adt-position (/ nr-cells-width 2)
                              (/ nr-cells-height 2)))
-         (ant-adt (make-adt-ant ant-position))
-         (wall-position (make-adt-position 10 15))
-         (wall-adt (make-adt-wall wall-position)))
+         (ant-adt (make-adt-ant ant-position)))
 
 
 ;---------------------------------------------------------------
@@ -22,32 +20,20 @@
 
     (define (turn-ant! msg)
       (cond ((eq? msg 'right)
-             ((ant-adt 'direction!) 'right)
-             ;;(display "right")
-             ((ant-adt 'move!)))
-                                                            
-                                  
+
+             ((ant-adt 'direction!) 'right))
+
+
+
+
 
              
             ((eq? msg 'left)
-             ((ant-adt 'direction!) 'left)
-             
-             ((ant-adt 'move!)))
-             
-            
+             ((ant-adt 'direction!) 'left))
             ((eq? msg 'up)
-             ((ant-adt 'direction!) 'up)
-             
-             ((ant-adt 'move!)))
-            ; ((ant-adt 'position!) ((ant-position 'move) 'up)))
-            
-            
+             ((ant-adt 'direction!) 'up))
             ((eq? msg 'down)
-             ((ant-adt 'direction!) 'down)
-             
-             ((ant-adt 'move!)))
-             
-            
+             ((ant-adt 'direction!) 'down))
             (else
              (display "unknown direction input - level adt - move-ant!"))))
 
@@ -55,7 +41,7 @@
 
 
     (define (move-ant!)
-      (display ""))
+      (display 'move-ant))
     
 
 
@@ -94,7 +80,6 @@
     (define (dispatch-level msg)
       (cond ((eq? msg 'update!) update!)
             ((eq? msg 'ant) ant-adt) ;; 'ant doest not refer to let anymore but the possibility the ant on a different position
-            ((eq? msg 'wall) wall-adt)
             ((eq? msg 'key!) key!) 
             (else
              (display "DISPATCH-LEVEL ELSE BRANCH"))))
