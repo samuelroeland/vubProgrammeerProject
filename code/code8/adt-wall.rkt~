@@ -1,0 +1,23 @@
+;;;;;;
+;; Wall ADT ;;
+
+
+(define (make-wall-adt position)
+
+  ;; position! :: position -> /
+  (define (position! new-pos)
+    (set! position new-pos))
+
+
+
+
+
+
+  (define (dispatch-wall msg)
+    (cond ((eq? msg 'position!) position!)
+          ((eq? msg 'position) position)
+          (else
+           (display "error-wall-adt"))))
+
+
+  dispatch-wall)
