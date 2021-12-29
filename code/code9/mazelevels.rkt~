@@ -1,0 +1,103 @@
+
+(define (maze-levels)
+
+  (define level1-maze  '(;; TOP ROW
+                  (make-adt-wallpiece (make-adt-position 19 0))
+                  (make-adt-wallpiece (make-adt-position 18 0))
+                  (make-adt-wallpiece (make-adt-position 17 0))
+                  (make-adt-wallpiece (make-adt-position 16 0))
+                  (make-adt-wallpiece (make-adt-position 15 0))
+                  (make-adt-wallpiece (make-adt-position 14 0))
+                  (make-adt-wallpiece (make-adt-position 13 0))
+                  (make-adt-wallpiece (make-adt-position 12 0))
+                  (make-adt-wallpiece (make-adt-position 11 0))
+                  (make-adt-wallpiece (make-adt-position 10 0))
+                  (make-adt-wallpiece (make-adt-position 9 0))
+                  (make-adt-wallpiece (make-adt-position 8 0))
+                  (make-adt-wallpiece (make-adt-position 7 0))
+                  (make-adt-wallpiece (make-adt-position 6 0))
+                  (make-adt-wallpiece (make-adt-position 5 0))
+                  ;(make-adt-wallpiece (make-adt-position 4 0)) ;; start pos ant
+                  (make-adt-wallpiece (make-adt-position 3 0))
+                  (make-adt-wallpiece (make-adt-position 2 0))
+                  (make-adt-wallpiece (make-adt-position 1 0))
+                  (make-adt-wallpiece (make-adt-position 0 0))
+
+                  ;; BOT ROW
+                  (make-adt-wallpiece (make-adt-position 19 19))
+                  (make-adt-wallpiece (make-adt-position 18 19))
+                  (make-adt-wallpiece (make-adt-position 17 19))
+                  (make-adt-wallpiece (make-adt-position 16 19))
+                  ;(make-adt-wallpiece (make-adt-position 15 19)) ;; end pos ant
+                  (make-adt-wallpiece (make-adt-position 14 19))
+                  (make-adt-wallpiece (make-adt-position 13 19))
+                  (make-adt-wallpiece (make-adt-position 12 19))
+                  (make-adt-wallpiece (make-adt-position 11 19))
+                  (make-adt-wallpiece (make-adt-position 10 19))
+                  (make-adt-wallpiece (make-adt-position 9 19))
+                  (make-adt-wallpiece (make-adt-position 8 19))
+                  (make-adt-wallpiece (make-adt-position 7 19))
+                  (make-adt-wallpiece (make-adt-position 6 19))
+                  (make-adt-wallpiece (make-adt-position 5 19))
+                  (make-adt-wallpiece (make-adt-position 4 19))
+                  (make-adt-wallpiece (make-adt-position 3 19))
+                  (make-adt-wallpiece (make-adt-position 2 19))
+                  (make-adt-wallpiece (make-adt-position 1 19))
+                  (make-adt-wallpiece (make-adt-position 0 19))
+
+
+                  ;; RIGHT ROW
+                  (make-adt-wallpiece (make-adt-position 19 19))
+                  (make-adt-wallpiece (make-adt-position 19 18))
+                  (make-adt-wallpiece (make-adt-position 19 17))
+                  (make-adt-wallpiece (make-adt-position 19 16))
+                  (make-adt-wallpiece (make-adt-position 19 15))
+                  (make-adt-wallpiece (make-adt-position 19 14))
+                  (make-adt-wallpiece (make-adt-position 19 13))
+                  (make-adt-wallpiece (make-adt-position 19 12))
+                  (make-adt-wallpiece (make-adt-position 19 11))
+                  (make-adt-wallpiece (make-adt-position 19 10))
+                  (make-adt-wallpiece (make-adt-position 19 9))
+                  (make-adt-wallpiece (make-adt-position 19 8))
+                  (make-adt-wallpiece (make-adt-position 19 7))
+                  (make-adt-wallpiece (make-adt-position 19 6))
+                  (make-adt-wallpiece (make-adt-position 19 5))
+                  (make-adt-wallpiece (make-adt-position 19 4))
+                  (make-adt-wallpiece (make-adt-position 19 3))
+                  (make-adt-wallpiece (make-adt-position 19 2))
+                  (make-adt-wallpiece (make-adt-position 19 1))
+                  (make-adt-wallpiece (make-adt-position 19 0))
+
+                  
+
+                  ;; LEFT ROW
+                  (make-adt-wallpiece (make-adt-position 0 19))
+                  (make-adt-wallpiece (make-adt-position 0 18))
+                  (make-adt-wallpiece (make-adt-position 0 17))
+                  (make-adt-wallpiece (make-adt-position 0 16))
+                  (make-adt-wallpiece (make-adt-position 0 15))
+                  (make-adt-wallpiece (make-adt-position 0 14))
+                  (make-adt-wallpiece (make-adt-position 0 13))
+                  (make-adt-wallpiece (make-adt-position 0 12))
+                  (make-adt-wallpiece (make-adt-position 0 11))
+                  (make-adt-wallpiece (make-adt-position 0 10))
+                  (make-adt-wallpiece (make-adt-position 0 9))
+                  (make-adt-wallpiece (make-adt-position 0 8))
+                  (make-adt-wallpiece (make-adt-position 0 7))
+                  (make-adt-wallpiece (make-adt-position 0 6))
+                  (make-adt-wallpiece (make-adt-position 0 5))
+                  (make-adt-wallpiece (make-adt-position 0 4))
+                  (make-adt-wallpiece (make-adt-position 0 3))
+                  (make-adt-wallpiece (make-adt-position 0 2))
+                  (make-adt-wallpiece (make-adt-position 0 1))
+                  (make-adt-wallpiece (make-adt-position 0 0))
+
+                  ))
+
+
+  (define (dispatch-maze msg)
+    (cond ((eq? msg 'level1-maze) level1-maze)
+          (else
+           (display "dispatch-maze unknown message"))))
+
+  dispatch-maze)
