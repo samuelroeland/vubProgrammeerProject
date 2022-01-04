@@ -1,0 +1,30 @@
+(define cel-width-px 30)
+(define cel-height-px 25)
+
+(define game-width 20)
+(define game-height 20)
+
+(define window-width-px (* cel-width-px game-width))
+(define window-height-px (* cel-height-px game-height))
+
+
+
+;; ant
+(define ant-start-position-x 4)
+(define ant-start-position-y 0)
+
+
+
+
+
+;; wall
+
+
+
+;; scorpion
+(define scorp1-start-position-x 12)
+(define scorp1-start-position-y 7)
+
+(define scorpion-speed 200) ;; 200 milliseconds = 0,2 seconds
+
+
